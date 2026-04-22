@@ -21,9 +21,10 @@ body.dark-mode {
     --primary-blue: #007BFF;
     --dark-blue: #0F4C75;       
     --accent-orange: #FF9800;   
-    --text-dark: #333333;
+    --text-dark: #18212a;
     --text-white: #ffffff;
-    --light-bg: #f4f4f4;        
+    --light-bg: #eef4f8;        
+    --muted-text: #475867;
 }
 
 * {
@@ -35,9 +36,92 @@ body.dark-mode {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: white;
+    background-color: var(--light-bg);
     color: var(--text-dark);
     overflow-x: hidden;
+}
+
+body:not(.dark-mode),
+body:not(.dark-mode) .section-light,
+body:not(.dark-mode) .page-card,
+body:not(.dark-mode) .contact-form-container,
+body:not(.dark-mode) .community-card,
+body:not(.dark-mode) .post-card,
+body:not(.dark-mode) .post-composer,
+body:not(.dark-mode) .dashboard-card,
+body:not(.dark-mode) .community-guest-card,
+body:not(.dark-mode) .profile-dashboard-card,
+body:not(.dark-mode) .comment-card,
+body:not(.dark-mode) .reply-card,
+body:not(.dark-mode) .thread-item,
+body:not(.dark-mode) .mini-list-item {
+    color: #18212a !important;
+}
+
+body:not(.dark-mode) .section-light h1,
+body:not(.dark-mode) .section-light h2,
+body:not(.dark-mode) .section-light h3,
+body:not(.dark-mode) .section-light h4,
+body:not(.dark-mode) .section-light h5,
+body:not(.dark-mode) .section-light h6,
+body:not(.dark-mode) .section-light p,
+body:not(.dark-mode) .section-light li,
+body:not(.dark-mode) .section-light label,
+body:not(.dark-mode) .section-light span,
+body:not(.dark-mode) .section-light strong,
+body:not(.dark-mode) .section-light small,
+body:not(.dark-mode) .page-card h1,
+body:not(.dark-mode) .page-card h2,
+body:not(.dark-mode) .page-card h3,
+body:not(.dark-mode) .page-card p,
+body:not(.dark-mode) .page-card span,
+body:not(.dark-mode) .page-card strong,
+body:not(.dark-mode) .page-card small,
+body:not(.dark-mode) .contact-form-container h1,
+body:not(.dark-mode) .contact-form-container h2,
+body:not(.dark-mode) .contact-form-container h3,
+body:not(.dark-mode) .contact-form-container p,
+body:not(.dark-mode) .contact-form-container label,
+body:not(.dark-mode) .contact-form-container span,
+body:not(.dark-mode) .contact-form-container strong,
+body:not(.dark-mode) .community-guest-card h1,
+body:not(.dark-mode) .community-guest-card h2,
+body:not(.dark-mode) .community-guest-card h3,
+body:not(.dark-mode) .community-guest-card p,
+body:not(.dark-mode) .community-guest-card span,
+body:not(.dark-mode) .community-guest-card strong,
+body:not(.dark-mode) .profile-dashboard-card h1,
+body:not(.dark-mode) .profile-dashboard-card h2,
+body:not(.dark-mode) .profile-dashboard-card h3,
+body:not(.dark-mode) .profile-dashboard-card p,
+body:not(.dark-mode) .profile-dashboard-card span,
+body:not(.dark-mode) .profile-dashboard-card strong {
+    color: #18212a !important;
+}
+
+body:not(.dark-mode) .helper-text,
+body:not(.dark-mode) .post-time,
+body:not(.dark-mode) .comment-header span,
+body:not(.dark-mode) .conversation-topline span,
+body:not(.dark-mode) .comment-count,
+body:not(.dark-mode) .dashboard-copy,
+body:not(.dark-mode) .guest-copy p,
+body:not(.dark-mode) .mini-list-item p,
+body:not(.dark-mode) .form-footnote,
+body:not(.dark-mode) .stat-card span {
+    color: #475867 !important;
+}
+
+body:not(.dark-mode) .btn-solid,
+body:not(.dark-mode) .btn-solid span,
+body:not(.dark-mode) .btn-solid strong {
+    color: #ffffff !important;
+}
+
+body:not(.dark-mode) .btn-outline,
+body:not(.dark-mode) .btn-outline span,
+body:not(.dark-mode) .btn-outline strong {
+    color: var(--primary-blue) !important;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -132,6 +216,50 @@ img { display: block; max-width: 100%; }
 /* Light Section (Motorcycle) */
 .section-light { background-color: var(--light-bg); color: var(--text-dark); }
 .section-light h2 span { color: var(--primary-blue); }
+.section-light h1,
+.section-light h2,
+.section-light h3,
+.section-light h4,
+.section-light h5,
+.section-light h6,
+.section-light p,
+.section-light li,
+.section-light label,
+.section-light strong,
+.section-light small,
+.section-light span,
+.section-light div {
+    color: var(--text-dark);
+}
+.section-light p,
+.section-light li,
+.section-light label,
+.page-card p,
+.page-card li,
+.preview-tile span,
+.thread-item span,
+.mini-list-item p,
+.form-footnote,
+.helper-text,
+.quiz-question {
+    color: var(--text-dark);
+}
+.section-light .btn-solid,
+.section-light .btn-solid span,
+.section-light .btn-solid strong {
+    color: white;
+}
+.section-light .btn-outline {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+.section-light .btn-outline:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+.section-light h2 span {
+    color: var(--primary-blue);
+}
 
 /* Dark Section (Timeline) */
 .section-dark { background-color: var(--dark-blue); color: white; }
@@ -345,6 +473,7 @@ h2.slide-title {
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     text-align: left; /* Ensures everything inside is left-aligned */
     max-width: 600px; /* Prevents the form from becoming too wide */
+    color: var(--text-dark);
 }
 
 .contact-form-container h3 {
@@ -355,7 +484,7 @@ h2.slide-title {
 
 .contact-form-container p {
     margin-bottom: 30px;
-    color: #666;
+    color: var(--muted-text);
 }
 
 /* Ensure the form fields are also strictly left-aligned */
@@ -487,6 +616,15 @@ body.dark-mode .registration-card input {
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
     background-color: #fafafa;
+    color: var(--text-dark);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+.registration-card input::placeholder,
+.registration-card textarea::placeholder,
+.inline-reply input::placeholder {
+    color: #6f7c87;
 }
 
 .contact-form input:focus, 
@@ -546,6 +684,25 @@ body.dark-mode .registration-card input {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     align-items: stretch;
+}
+
+.community-guest-card,
+.community-guest-card h1,
+.community-guest-card h2,
+.community-guest-card h3,
+.community-guest-card p,
+.community-guest-card li,
+.community-guest-card span,
+.community-guest-card strong,
+.profile-dashboard-card,
+.profile-dashboard-card h1,
+.profile-dashboard-card h2,
+.profile-dashboard-card h3,
+.profile-dashboard-card p,
+.profile-dashboard-card li,
+.profile-dashboard-card span,
+.profile-dashboard-card strong {
+    color: #18212a;
 }
 
 .guest-copy p,
@@ -634,6 +791,7 @@ body.dark-mode .registration-card input {
 .dashboard-card {
     max-width: 100%;
     border: 1px solid rgba(15, 76, 117, 0.08);
+    color: var(--text-dark);
 }
 
 .community-heading {
@@ -645,8 +803,28 @@ body.dark-mode .registration-card input {
 
 .community-heading p,
 .admin-heading p {
-    color: rgba(51, 51, 51, 0.78);
+    color: var(--muted-text);
     max-width: 700px;
+}
+
+.section-dark .admin-heading p,
+.section-dark .helper-text,
+.section-dark .comment-count,
+.section-dark .conversation-topline span,
+.section-dark .comment-header span,
+.section-dark .mini-list-item p,
+.section-dark .dashboard-card p,
+.section-dark .dashboard-card span,
+.section-dark .dashboard-card li,
+.section-dark .dashboard-card small {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.section-dark .dashboard-card strong,
+.section-dark .dashboard-card h3,
+.section-dark .dashboard-card td,
+.section-dark .dashboard-card th {
+    color: #18212a;
 }
 
 .community-stat-grid {
@@ -671,7 +849,7 @@ body.dark-mode .registration-card input {
 }
 
 .stat-card span {
-    color: #5b6770;
+    color: var(--muted-text);
     font-size: 0.95rem;
 }
 
@@ -711,7 +889,7 @@ body.dark-mode .registration-card input {
 
 .community-empty p,
 .helper-text {
-    color: #66717a;
+    color: var(--muted-text);
     margin-bottom: 16px;
 }
 
@@ -755,7 +933,7 @@ body.dark-mode .registration-card input {
 .comment-header span,
 .conversation-topline span,
 .comment-count {
-    color: #77838d;
+    color: var(--muted-text);
     font-size: 0.9rem;
 }
 
@@ -804,6 +982,7 @@ body.dark-mode .registration-card input {
     background: #f7fbff;
     border-radius: 16px;
     border: 1px solid rgba(15, 76, 117, 0.08);
+    color: var(--text-dark);
 }
 
 .comment-card,
@@ -1124,12 +1303,62 @@ body {
 }
 
 .splash-panel {
-    text-align: center;
     padding: 48px 32px;
     border-radius: 28px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.14);
     backdrop-filter: blur(8px);
+}
+
+.splash-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.splash-copy {
+    text-align: left;
+}
+
+.splash-copy .splash-logo {
+    margin: 0 0 20px;
+}
+
+.splash-feature-box {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.splash-feature-card {
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.14);
+    text-align: left;
+}
+
+.splash-feature-card strong,
+.splash-feature-card span {
+    display: block;
+    color: white;
+}
+
+.splash-feature-card strong {
+    margin-bottom: 6px;
+}
+
+.splash-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.splash-actions .btn {
+    min-width: 180px;
+    text-align: center;
 }
 
 .splash-logo {
@@ -1186,6 +1415,7 @@ body {
     padding: 30px;
     box-shadow: 0 18px 40px rgba(15, 76, 117, 0.08);
     border: 1px solid rgba(15, 76, 117, 0.08);
+    color: var(--text-dark);
 }
 
 .page-card h3 {
@@ -1342,6 +1572,97 @@ body {
     color: var(--dark-blue);
 }
 
+.quiz-progress {
+    margin: 0;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.quiz-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.quiz-score {
+    margin: 0;
+    font-weight: 800;
+    color: var(--dark-blue);
+}
+
+.quiz-option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.quiz-option {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 2px solid #dbe5ef;
+    background: white;
+    color: var(--text-dark);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.quiz-option:hover {
+    border-color: var(--primary-blue);
+    background: #f5faff;
+}
+
+.quiz-option.correct {
+    border-color: #2e8b57;
+    background: rgba(46, 139, 87, 0.12);
+    color: #1f6c41;
+}
+
+.quiz-option.incorrect {
+    border-color: #d9534f;
+    background: rgba(217, 83, 79, 0.1);
+    color: #9f2f2b;
+}
+
+.quiz-feedback {
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.quiz-feedback.correct {
+    color: #1f6c41;
+}
+
+.quiz-feedback.incorrect {
+    color: #9f2f2b;
+}
+
+.quiz-summary {
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: #f5faff;
+    border: 1px solid rgba(0, 123, 255, 0.12);
+}
+
+.quiz-summary strong,
+.quiz-summary span {
+    display: block;
+}
+
+.quiz-summary strong {
+    margin-bottom: 6px;
+    color: var(--dark-blue);
+}
+
+.quiz-summary span {
+    color: var(--text-dark);
+}
+
 .quiz-actions {
     display: flex;
     justify-content: center;
@@ -1383,6 +1704,22 @@ body {
     gap: 24px;
 }
 
+.splash-panel p,
+.hero-copy,
+.dashboard-copy,
+.home-purpose-copy {
+    color: rgba(255,255,255,0.92);
+}
+
+.guest-copy p,
+.guest-copy .slide-title,
+.guest-copy .slide-title span,
+.profile-dashboard-card .slide-title,
+.profile-dashboard-card .slide-title span,
+.profile-dashboard-card .dashboard-copy {
+    color: var(--text-dark);
+}
+
 @media (max-width: 1024px) {
     .standard-page-grid,
     .post-view-shell {
@@ -1399,7 +1736,7 @@ body {
         justify-content: center;
     }
 
-    .home-gallery-grid {
+    .splash-layout {
         grid-template-columns: 1fr;
     }
 
@@ -1418,6 +1755,20 @@ body {
     .community-guest-card,
     .profile-dashboard-card {
         padding: 22px;
+    }
+
+    .splash-copy {
+        text-align: center;
+    }
+
+    .splash-copy .splash-logo {
+        margin: 0 auto 20px;
+    }
+
+    .quiz-topline,
+    .splash-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .feature-grid {

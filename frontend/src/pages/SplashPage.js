@@ -32,31 +32,50 @@ const SplashPage = () => {
     >
       <div className="page-overlay"></div>
       <div className="splash-panel">
-        <img src="/asset/logo.png" alt="Wander & Explore logo" className="splash-logo" />
-        <h1>Welcome to TheFolio</h1>
-        <p>
-          A travel community space for stories, route planning, admin messaging,
-          and member updates.
-        </p>
-        <div className="splash-actions">
-          <Link to="/home" className="btn btn-solid">
-            Browse Homepage
-          </Link>
-          {!user && (
-            <>
-              <Link to="/register" className="btn btn-outline splash-outline">
-                Register
+        <div className="splash-layout">
+          <div className="splash-copy">
+            <img src="/asset/logo.png" alt="Wander & Explore logo" className="splash-logo" />
+            <h1>Welcome to TheFolio</h1>
+            <p>
+              A travel community space for stories, route planning, guest browsing,
+              and member interaction when users decide to log in.
+            </p>
+            <div className="splash-actions">
+              <Link to="/home" className="btn btn-solid">
+                Continue as Guest
               </Link>
-              <Link to="/login" className="btn btn-outline splash-outline">
-                Login
-              </Link>
-            </>
-          )}
-          {user && (
-            <Link to="/profile" className="btn btn-outline splash-outline">
-              Open Profile
-            </Link>
-          )}
+              {!user && (
+                <>
+                  <Link to="/register" className="btn btn-outline splash-outline">
+                    Register
+                  </Link>
+                  <Link to="/login" className="btn btn-outline splash-outline">
+                    Login
+                  </Link>
+                </>
+              )}
+              {user && (
+                <Link to="/profile" className="btn btn-outline splash-outline">
+                  Open Profile
+                </Link>
+              )}
+            </div>
+          </div>
+
+          <div className="splash-feature-box">
+            <div className="splash-feature-card">
+              <strong>Guest Mode</strong>
+              <span>Browse pages and take the travel quiz without logging in.</span>
+            </div>
+            <div className="splash-feature-card">
+              <strong>Member Access</strong>
+              <span>Post, comment, reply, react, and message admin after login.</span>
+            </div>
+            <div className="splash-feature-card">
+              <strong>Travel Focus</strong>
+              <span>Keep the original travel layout while adding the new community tools.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

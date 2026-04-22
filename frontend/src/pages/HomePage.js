@@ -592,30 +592,6 @@ function HomePage() {
       </section>
 
       <section className="content-block section-light">
-        <div className="gallery-wrapper">
-          <h2 className="slide-title">
-            Travel <span>Quiz</span>
-          </h2>
-          <div className="page-card quiz-panel">
-            <p className="quiz-question">
-              Which option gives access to posting, messaging, reactions, comments, and replies?
-            </p>
-            <div className="quiz-actions">
-              <button className="btn btn-solid" type="button">
-                Login or Register
-              </button>
-              <button className="btn btn-outline community-outline" type="button">
-                Stay as Guest
-              </button>
-            </div>
-            <p className="helper-text">
-              Account features are activated only after login or registration.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-block section-light">
         {!isLoggedIn ? (
           <div className="community-guest-card">
             <div className="guest-copy">
@@ -1139,28 +1115,6 @@ function HomePage() {
               </div>
             </div>
           )}
-        </div>
-      </section>
-
-      <section className="content-block section-light">
-        <div className="gallery-wrapper">
-          <h2 className="slide-title">
-            Travel <span>Gallery</span>
-          </h2>
-          <div className="home-gallery-grid">
-            {[
-              "/asset/travel28.jpg",
-              "/asset/travel33.jpg",
-              "/asset/travel11.jpg",
-              "/asset/travel12.jpg",
-              "/asset/travel15.jpg",
-              "/asset/travel21.jpg",
-            ].map((image, index) => (
-              <div key={image} className="home-gallery-card">
-                <img src={image} alt={`Travel gallery ${index + 1}`} />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
