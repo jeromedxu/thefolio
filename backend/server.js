@@ -6,30 +6,25 @@ const path = require('path');
 const connectDB = require('./config/db');
 
 // Import routes
-const authRoutes = require('./Routes/auth.routes');
-const postRoutes = require('./Routes/post.routes');
-const commentRoutes = require('./Routes/comment.routes');
-const adminRoutes = require('./Routes/admin.routes');
+const authRoutes = require('./routes/auth.routes');
+const postRoutes = require('./routes/post.routes');
+const commentRoutes = require('./routes/comment.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 const app = express();
 
 // Connect to MongoDB
-connectDB();
+// connectDB();
 
 // ── Middleware ─────────────────────────────────────────────────
-// Allow local development and the deployed frontend to call this server
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://thefolio.vercel.app',
-  process.env.FRONTEND_URL,
-].filter(Boolean);
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+// Allow React frontend (port 3000) to call this server
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://thefolio-git-main-jeromedxus-projects.vercel.app/',
+  ],
+  credentials: true,
+}));
 
 // Parse incoming JSON request bodies
 app.use(express.json());
@@ -58,5 +53,5 @@ app.use((err, req, res, next) => {
 // ── Start Server ──────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
