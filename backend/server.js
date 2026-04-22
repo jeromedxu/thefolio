@@ -6,10 +6,10 @@ const path = require('path');
 const connectDB = require('./config/db');
 
 // Import routes
-const authRoutes = require('./routes/auth.routes');
-const postRoutes = require('./routes/post.routes');
-const commentRoutes = require('./routes/comment.routes');
-const adminRoutes = require('./routes/admin.routes');
+const authRoutes = require('./Routes/auth.routes');
+const postRoutes = require('./Routes/post.routes');
+const commentRoutes = require('./Routes/comment.routes');
+const adminRoutes = require('./Routes/admin.routes');
 
 const app = express();
 
