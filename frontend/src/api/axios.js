@@ -4,6 +4,11 @@ import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
+// Derive the backend root URL for accessing uploaded images and static assets.
+export const backendURL = process.env.REACT_APP_BACKEND_URL 
+  ? process.env.REACT_APP_BACKEND_URL 
+  : baseURL.replace(/\/api$/, '');
+
 const instance = axios.create({
  baseURL,
 });

@@ -21,8 +21,7 @@ connectDB();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://thefolio.vercel.app',
-    'https://thefolio-git-main-jeromedxus-projects.vercel.app',
+    'https://thefolio-theta.vercel.app'
   ],
   credentials: true,
 }));
