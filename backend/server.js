@@ -14,14 +14,15 @@ const adminRoutes = require('./routes/admin.routes');
 const app = express();
 
 // Connect to MongoDB
-// connectDB();
+connectDB();
 
 // ── Middleware ─────────────────────────────────────────────────
 // Allow React frontend (port 3000) to call this server
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://thefolio-git-main-jeromedxus-projects.vercel.app/',
+    'https://thefolio.vercel.app',
+    'https://thefolio-git-main-jeromedxus-projects.vercel.app',
   ],
   credentials: true,
 }));

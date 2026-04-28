@@ -1,6 +1,4 @@
-# frontend/.gitignore (CRA creates this automatically)
+# backend/.gitignore
 node_modules/
 .env
-.env.production
-.env.local
-build/
+uploads/
