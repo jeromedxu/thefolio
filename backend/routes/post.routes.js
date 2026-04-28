@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   try {
     const posts = await Post.find({ status: 'published' })
       .populate('author', 'name profilePic')
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: 1 }); // Posts added at the bottom
 
     res.json(posts);
   } catch (err) {
@@ -40,11 +40,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
-console.log('protect:', typeof protect);
-console.log('memberOrAdmin:', typeof memberOrAdmin);
-console.log('upload:', typeof upload);
-console.log('upload.single:', typeof upload.single);
 
 // POST /api/posts — Member or Admin: create new post
 router.post(
@@ -106,6 +101,7 @@ router.put(
       if (req.file) post.image = req.file.filename;
 
       await post.save();
+      await post.populate('author', 'name profilePic');
 
       res.json(post);
     } catch (err) {

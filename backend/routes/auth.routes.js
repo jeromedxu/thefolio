@@ -19,10 +19,12 @@ router.post('/register', async (req, res) => {
     if (exists) return res.status(400).json({ message: 'Email already exists' });
 
     const user = await User.create({ name, email, password });
+    const userResponse = user.toObject();
+    delete userResponse.password;
 
     res.status(201).json({
       token: generateToken(user._id),
-      user,
+      user: userResponse,
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -34,15 +36,19 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    // Explicitly select password for comparison
+    const user = await User.findOne({ email }).select('+password');
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
 
     const match = await user.matchPassword(password);
     if (!match) return res.status(400).json({ message: 'Invalid credentials' });
 
+    const userResponse = user.toObject();
+    delete userResponse.password;
+
     res.json({
       token: generateToken(user._id),
-      user,
+      user: userResponse,
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
