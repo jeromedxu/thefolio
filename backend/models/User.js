@@ -1,4 +1,3 @@
-// backend/models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -9,21 +8,21 @@ const userSchema = new mongoose.Schema({
   role: { type: String, enum: ['member', 'admin'], default: 'member' },
   status: { type: String, enum: ['active', 'inactive'], default: 'active' },
   bio: { type: String, default: '' },
-  profilePic: { type: String, default: '' }, // stores filename e.g. 'abc123.jpg'
-}, { timestamps: true }); // adds createdAt and updatedAt automatically
+  profilePic: { type: String, default: '' },
+}, { timestamps: true });
 
-// ── Pre-save hook: hash password before storing ────────────────
-// This runs automatically every time you call user.save()
-userSchema.pre('save', async function () {
+// Hash password
+userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
-    return; // skip password hash if unchanged
+    return next();
   }
 
-  const saltRounds = 12;
-  this.password = await bcrypt.hash(this.password, saltRounds);
+  const salt = await bcrypt.genSalt(12);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 
-// ── Instance method: compare entered password with stored hash ──
+// Compare password
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
