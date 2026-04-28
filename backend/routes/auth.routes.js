@@ -36,8 +36,8 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Explicitly select password for comparison
-    const user = await User.findOne({ email });
+    // Explicitly select password field to allow comparison
+    const user = await User.findOne({ email }).select('+password');
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
 
     const match = await user.matchPassword(password);
