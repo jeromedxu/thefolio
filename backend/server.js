@@ -18,11 +18,13 @@ connectDB();
 
 // ── Middleware ─────────────────────────────────────────────────
 // Allow React frontend (port 3000) to call this server
+// Use an environment variable for CORS origins, splitting by comma
+const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['http://localhost:3000'];
+
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://thefolio-theta.vercel.app'
-  ],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) { callback(null, true); } else { callback(new Error('Not allowed by CORS')); }
+  },
   credentials: true,
 }));
 
